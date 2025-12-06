@@ -20,24 +20,26 @@ function destroyBoxes() {
 // Kutuları oluşturma fonksiyonu
 function createBoxes(amount) {
   let size = 30; // İlk kutunun boyutu
+  if (amount > 99) {
+  } else {
+    for (let i = 0; i < amount; i++) {
+      const newDiv = document.createElement("div");
 
-  for (let i = 0; i < amount; i++) {
-    const newDiv = document.createElement("div");
+      // Boyutları ayarla
+      newDiv.style.width = size + "px";
+      newDiv.style.height = size + "px";
 
-    // Boyutları ayarla
-    newDiv.style.width = size + "px";
-    newDiv.style.height = size + "px";
+      // Rastgele arka plan rengi
+      newDiv.style.backgroundColor = getRandomHexColor();
 
-    // Rastgele arka plan rengi
-    newDiv.style.backgroundColor = getRandomHexColor();
+      // Margin ve görsellik için opsiyonel stil
+      newDiv.style.margin = "5px";
 
-    // Margin ve görsellik için opsiyonel stil
-    newDiv.style.margin = "5px";
+      // Boxes container içine ekle
+      boxes.appendChild(newDiv);
 
-    // Boxes container içine ekle
-    boxes.appendChild(newDiv);
-
-    // Bir sonraki kutuyu büyüt
-    size += 10;
+      // Bir sonraki kutuyu büyüt
+      size += 10;
+    }
   }
 }
